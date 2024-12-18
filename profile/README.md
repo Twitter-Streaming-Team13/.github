@@ -64,7 +64,7 @@ This isn’t just a data pipeline—it’s a journey into the heart of social me
 
 ---
 
-## 🌈 **Meet the Team**  
+## 👨‍💻 **Meet the Team**  
 👩‍💻 **Developers**: The brains behind the code.  
 🎨 **Designers**: Masters of maps, gauges, and trends.  
 📊 **Data Engineers**: Crafting insights from hashtags and sentiments.  
@@ -80,12 +80,6 @@ We’re always looking for passionate individuals to join the journey.
 
 ---
 
-## 📬 **Contact Us**  
-📧 **Email**: hello@tweetstreamhub.com  
-🧵 **Slack**: #tweetstream-team  
-🐦 **Twitter**: [@TweetStreamHub](https://twitter.com)  
-
----
 
 Let’s redefine Twitter analytics—together. 🌟  
 **#TweetStreamHub** 🚀  
