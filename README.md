@@ -60,11 +60,11 @@ This isn’t just a data pipeline—it’s a journey into the heart of social me
 - Connect components like Kafka, Elasticsearch, and the web app for the full experience.  
 
 ### **Pipeline Overview**  
-![Pipeline Diagram](https://dummyimage.com/800x400/0073e6/ffffff&text=Your+Pipeline+Diagram+Goes+Here)  
+![Pipeline Diagram](https://github.com/user-attachments/assets/2d8b340f-ad9f-4702-9f1d-9feb53245462)
 
 ---
 
-## 🌈 **Meet the Team**  
+## 👨‍💻 **Meet the Team**  
 👩‍💻 **Developers**: The brains behind the code.  
 🎨 **Designers**: Masters of maps, gauges, and trends.  
 📊 **Data Engineers**: Crafting insights from hashtags and sentiments.  
@@ -80,12 +80,6 @@ We’re always looking for passionate individuals to join the journey.
 
 ---
 
-## 📬 **Contact Us**  
-📧 **Email**: hello@tweetstreamhub.com  
-🧵 **Slack**: #tweetstream-team  
-🐦 **Twitter**: [@TweetStreamHub](https://twitter.com)  
-
----
 
 Let’s redefine Twitter analytics—together. 🌟  
 **#TweetStreamHub** 🚀  
