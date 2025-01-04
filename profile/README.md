@@ -59,7 +59,9 @@ The Twitter Stream Processing Pipeline is designed to handle real-time streaming
   - **Map View**: Displays tweets containing the keyword on an interactive map using Leaflet, based on geo-coordinates (longitude/latitude).
   - **Trend Diagram**: Shows the temporal distribution of tweets (hourly and daily aggregation).
   - **Sentiment Gauge**: Reflects the average sentiment score for tweets over a specified period of time.
+ ### lets preview in Action :
  
+#### home page :
 <div style="text-align: center; width: 100%;">
   <img src="https://github.com/user-attachments/assets/16f14018-2bb2-494f-bce9-beb140af62ec" width="300" style="display: block; margin: 0 auto;" />
 </div>
@@ -68,8 +70,12 @@ The Twitter Stream Processing Pipeline is designed to handle real-time streaming
 
 ![Home-Page-Mac](https://github.com/user-attachments/assets/b7513261-2797-437d-b03e-0d22d8abd52c)
 
+#### Map page :
 
-## 🗌 System Components
+![Map](https://github.com/user-attachments/assets/4ac9079c-3c39-437f-b655-49d5a3fcadde)
+
+
+## System Components
 
 ### 1. Kafka Producer for Batched Tweet Data Streaming
 - Reads geolocated tweet data from JSON files using Apache Spark.
