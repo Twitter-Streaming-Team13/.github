@@ -30,56 +30,134 @@ Our TweetStream Analytics Pipeline has a touch of magic and a dash of science:
 
 ---
 
-## 🎯 **Why Join Us?**  
-This isn’t just a data pipeline—it’s a journey into the heart of social media analytics. You’ll:  
-- Learn cutting-edge tech like Apache Kafka, Elasticsearch, and Leaflet.  
-- Work with sentiment analysis using Spark NLP or TextBlob.  
-- See your code come to life with interactive maps and real-time insights.  
+## Project Overview
+The Twitter Stream Processing Pipeline is designed to handle real-time streaming tweets, process and transform the data for efficient querying, and visualize results in an interactive web application. This pipeline integrates multiple components, leveraging scalable tools and technologies like Apache Kafka, Elasticsearch, Apache Spark, and React to ensure seamless ingestion, processing, storage, and visualization of Twitter data.
 
----
+## Main Components
 
-## 🤝 **Collaboration Guidelines**  
+### 1. Stream Ingestion
+- Collects a continuous stream of tweets using the Twitter API or a simulated tweet generator.
+- Maintains the incoming tweet stream in an Apache Kafka topic for intermediate storage and scalability.
 
-1. **Teamwork Makes the Dream Work**  
-   - Use **GitHub Issues** for bugs and features.  
-   - Submit **Pull Requests** for all changes—peer reviews are key!  
+### 2. Processing Components
+#### Data Transformation
+- Prepares tweet data for efficient searching over text, time, and space.
 
-2. **Mind the Deadlines**  
-   - **Project Submission**: 🗓️ January 4th, 2025, 23:59:00.  
-   - No commits after the deadline!  
+#### Hashtag Extraction
+- Extracts hashtags from tweet text and stores them as a nested array.
 
-3. **Organize and Conquer**  
-   - Break tasks into manageable pieces and track progress with GitHub Projects.  
-   - Use tools like Slack for communication and updates.  
+#### Sentiment Analysis
+- Uses Spark NLP or TextBlob to classify tweet sentiments as "Positive," "Negative," or "Neutral."
 
----
+### 3. Storage
+- Stores processed tweets and their metadata in an Elasticsearch database.
+- Designed with a schema to support querying by text, time, hashtags, and geo-coordinates.
 
-## 🛠️ **How to Get Started**  
-- Clone the repositories.  
-- Follow the setup instructions in each README.  
-- Connect components like Kafka, Elasticsearch, and the web app for the full experience.  
-
-### **Pipeline Overview**  
-![Pipeline Diagram](https://github.com/user-attachments/assets/2d8b340f-ad9f-4702-9f1d-9feb53245462)
-
----
-
-## 👨‍💻 **Meet the Team**  
-👩‍💻 **Developers**: The brains behind the code.  
-🎨 **Designers**: Masters of maps, gauges, and trends.  
-📊 **Data Engineers**: Crafting insights from hashtags and sentiments.  
-📢 **Marketers**: Spreading the word far and wide.  
-
----
-
-## 📣 **Want to Contribute?**  
-We’re always looking for passionate individuals to join the journey.  
-1. Fork any repo and make your magic.  
-2. Submit a Pull Request—don’t forget clear commit messages!  
-3. Let’s make TweetStream Analytics Hub even better.  
-
----
+### 4. Web Application
+- Provides an input field where users can search for tweets by keyword.
+- Visualizes results with:
+  - **Map View**: Displays tweets containing the keyword on an interactive map using Leaflet, based on geo-coordinates (longitude/latitude).
+  - **Trend Diagram**: Shows the temporal distribution of tweets (hourly and daily aggregation).
+  - **Sentiment Gauge**: Reflects the average sentiment score for tweets over a specified period of time.
+ 
+<div style="text-align: center; width: 100%;">
+  <img src="https://github.com/user-attachments/assets/16f14018-2bb2-494f-bce9-beb140af62ec" width="300" style="display: block; margin: 0 auto;" />
+</div>
+<br>
 
 
-Let’s redefine Twitter analytics—together. 🌟  
-**#TweetStreamHub** 🚀  
+![Home-Page-Mac](https://github.com/user-attachments/assets/b7513261-2797-437d-b03e-0d22d8abd52c)
+
+
+## 🗌 System Components
+
+### 1. Kafka Producer for Batched Tweet Data Streaming
+- Reads geolocated tweet data from JSON files using Apache Spark.
+- Sends data to a Kafka topic (`tweets`) in batches (default size: 1000 records).
+- Simulates real-time streaming with a configurable delay (default: 30 seconds).
+
+### 2. Kafka Consumers for Processing and Sentiment Analysis
+#### a. Filter Consumer
+- Consumes tweet data from the Kafka `tweets` topic.
+- Filters geolocated tweets and extracts relevant fields (text, hashtags, time, coordinates).
+- Sends filtered data to the Kafka topic `processedTweets`.
+
+#### b. Sentiment Analysis Consumer
+- Consumes data from the Kafka `processedTweets` topic.
+- Performs sentiment analysis using Spark NLP.
+- Classifies tweets as "Positive," "Negative," or "Neutral."
+- Sends enriched data to Elasticsearch for visualization.
+
+### 3. Elasticsearch Manager
+- Stores and indexes processed tweet data for querying and analytics.
+- Configures Elasticsearch index with fields like text, hashtags, sentiment, coordinates, and timestamp.
+
+### 4. Sentiment Analysis API
+- Built with FastAPI to query Elasticsearch for tweet data and sentiment insights.
+- Features include:
+  - Sentiment scores and geo-based trends.
+  - Hashtag ranking and temporal analysis.
+  - Custom date range filtering.
+
+### 5. Web Application
+- React.js-based frontend for visualizing tweet data.
+- Features include:
+  - Latest tweets and sentiment distribution.
+  - Trending hashtags and topics.
+  - Sentiment by location (interactive maps).
+  - Daily/hourly sentiment trends.
+
+## 🛠️ Prerequisites
+To run the system, ensure the following tools are installed:
+
+- Apache Kafka
+- Apache Spark
+- Elasticsearch (v7.x or higher)
+- Python 3.8+
+- React.js
+- Docker (optional, for Elasticsearch setup)
+
+## ⚡ Quick Start Guide
+
+### 1. Set Up Kafka
+Start a Kafka server and create required topics: `tweets` and `processedTweets`.
+
+### 2. Run the Kafka Producer
+Use Apache Spark to read tweet data and send it to the Kafka `tweets` topic.
+
+### 3. Start Kafka Consumers
+- Deploy the Filter Consumer to process tweets and forward to `processedTweets`.
+- Deploy the Sentiment Analysis Consumer to classify sentiments and store them in Elasticsearch.
+
+### 4. Set Up Elasticsearch
+Use Docker for a quick setup:
+```bash
+docker run -p 9200:9200 -d docker.elastic.co/elasticsearch/elasticsearch:7.9.3
+```
+
+Create an Elasticsearch index for storing tweet data:
+```bash
+curl -X PUT "localhost:9200/tweet" -H 'Content-Type: application/json' -d'
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 1
+  },
+  "mappings": {
+    "properties": {
+      "created_at": {"type": "date", "format": "EEE MMM dd HH:mm:ss Z yyyy"},
+      "text": {"type": "text", "analyzer": "standard"},
+      "hashtags": {"type": "nested", "properties": {"text": {"type": "keyword"}}},
+      "coordinates": {"type": "geo_point"},
+      "sentiment": {"type": "float"}
+    }
+  }
+}
+'
+```
+
+### 5. Run the Sentiment Analysis API
+Start the FastAPI application to query tweet data from Elasticsearch.
+
+### 6. Launch the Web Application
+Deploy the React.js frontend to visualize tweets, sentiments, and trends.
