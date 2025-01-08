@@ -106,7 +106,7 @@ The Twitter Stream Processing Pipeline is designed to handle real-time streaming
 - Stores and indexes processed tweet data for querying and analytics.
 - Configures Elasticsearch index with fields like text, hashtags, sentiment, coordinates, and timestamp.
 
-### 4. Sentiment Analysis API
+### 4. API Services
 - Built with FastAPI to query Elasticsearch for tweet data and sentiment insights.
 - Features include:
   - Sentiment scores and geo-based trends.
