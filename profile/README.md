@@ -6,13 +6,17 @@ Where tweets meet technology! 🚀
 ## 🌍 **Our Mission**  
 We’re here to decode the world of Twitter, one tweet at a time! By harnessing real-time streaming, big data processing, and intuitive visualization, we bring Twitter analytics to life. Whether it’s hashtags, sentiment, or trends, we’ve got it all mapped—literally. 🗺️✨  
 
+---
 
+## 🧠 💬 **New! Talk to Our AI Agent**
+We’ve introduced an **AI-powered assistant** you can chat with directly! 🤖🗣️  
+- **Ask it about how the website works**
+- **Inquire about tweets on the map from your current location to another**, or even **between any two locations**
+- It's like having a smart guide by your side—right inside the platform!
 
 <div style="text-align: center; margin-top: 20px;"> <a href="https://tweetinsight.vercel.app/" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: white; background-color: #1da1f2; text-decoration: none; border-radius: 5px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);"> 🌐 Visit TweetStream Analytics Web </a> </div>
 
-
 <div style="text-align: center; margin-top: 20px;"> <a href="https://www.figma.com/board/fHB7LhL2CwZxWzsIyTrGk9/Workflow-(Community)?node-id=0-1&t=1GwwCyyStebmuyLC-1" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: white; background-color: #1da1f2; text-decoration: none; border-radius: 5px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);"> 🚀 Project Workflow  </a> </div>
-
 
 ---
 
@@ -40,6 +44,7 @@ Our TweetStream Analytics Pipeline has a touch of magic and a dash of science:
 
 ## Project Overview
 The Twitter Stream Processing Pipeline is designed to handle real-time streaming tweets, process and transform the data for efficient querying, and visualize results in an interactive web application. This pipeline integrates multiple components, leveraging scalable tools and technologies like Apache Kafka, Elasticsearch, Apache Spark, and React to ensure seamless ingestion, processing, storage, and visualization of Twitter data.
+
 
 ## Main Components
 
